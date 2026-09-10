@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "wiki": {
+      "type": "wiki-aroids",
+      "blocks": {
+        "category_monstera": {
+          "type": "category",
+          "settings": {
+            "label": "モンステラ",
+            "tag": "monstera",
+            "description": "<p>切れ込みの入った葉と斑入り品種が人気のアロイド。品種の見分け方と育て方をまとめています。</p>",
+            "is_catch_all": false
+          }
+        },
+        "category_anthurium": {
+          "type": "category",
+          "settings": {
+            "label": "アンスリウム",
+            "tag": "anthurium",
+            "description": "<p>ベルベット葉の原種から交配種まで、アンスリウムの品種解説と管理方法。</p>",
+            "is_catch_all": false
+          }
+        },
+        "category_alocasia": {
+          "type": "category",
+          "settings": {
+            "label": "アロカシア",
+            "tag": "alocasia",
+            "description": "<p>個性的な葉姿のアロカシア。休眠・水やり・病害虫など栽培のポイント。</p>",
+            "is_catch_all": false
+          }
+        },
+        "category_philodendron": {
+          "type": "category",
+          "settings": {
+            "label": "フィロデンドロン",
+            "tag": "philodendron",
+            "description": "<p>つる性から立性まで幅広いフィロデンドロンの品種と育て方。</p>",
+            "is_catch_all": false
+          }
+        },
+        "category_other": {
+          "type": "category",
+          "settings": {
+            "label": "その他のアロイド",
+            "tag": "other",
+            "description": "<p>シンゴニウム、アグラオネマ、スキンダプサスなど、その他のアロイドの記事。</p>",
+            "is_catch_all": true
+          }
+        }
+      },
+      "block_order": [
+        "category_monstera",
+        "category_anthurium",
+        "category_alocasia",
+        "category_philodendron",
+        "category_other"
+      ],
+      "settings": {
+        "blog": "wiki-aroids",
+        "articles_per_category": 24,
+        "heading": "アロイド図鑑",
+        "heading_size": "h1",
+        "description": "<p>モンステラ、アンスリウム、アロカシア、フィロデンドロンなど、取り扱っているアロイドの品種と育て方の記事をまとめました。カテゴリーを選ぶか、キーワードで検索してください。</p>",
+        "nav_label": "カテゴリー",
+        "empty_text": "このカテゴリーの記事はまだありません。",
+        "no_match_text": "条件に一致する記事が見つかりませんでした。",
+        "show_search": true,
+        "search_placeholder": "品種名・キーワードで検索",
+        "columns_desktop": 3,
+        "show_image": true,
+        "image_ratio": "landscape",
+        "show_excerpt": true,
+        "show_date": false,
+        "show_tags": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "wiki"]
+}
