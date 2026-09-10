@@ -110,6 +110,39 @@
           assign category_tag = block.settings.tag | strip | downcase
           assign panel_id = 'WikiPanel-' | append: section.id | append: '-' | append: block.id
           assign shown = 0
+
+          comment
+            Count first, so a category with no article yet does not link to a
+            tag page that would 404.
+          endcomment
+          assign match_count = 0
+          for article in wiki_blog.articles
+            assign haystack = article.tags | join: '~~' | downcase
+            assign haystack = '~~' | append: haystack | append: '~~'
+
+            if block.settings.is_catch_all
+              assign matched = true
+              for main_tag in main_tag_list
+                assign needle = '~~' | append: main_tag | append: '~~'
+                if haystack contains needle
+                  assign matched = false
+                  break
+                endif
+              endfor
+            else
+              assign matched = false
+              if category_tag != blank
+                assign needle = '~~' | append: category_tag | append: '~~'
+                if haystack contains needle
+                  assign matched = true
+                endif
+              endif
+            endif
+
+            if matched
+              assign match_count = match_count | plus: 1
+            endif
+          endfor
         -%}
         <section
           id="{{ panel_id }}"
@@ -127,7 +160,7 @@
               {%- endif -%}
             </div>
 
-            {%- unless block.settings.is_catch_all or category_tag == blank -%}
+            {%- unless block.settings.is_catch_all or category_tag == blank or match_count == 0 -%}
               <a
                 class="wiki__view-all link underlined-link"
                 href="{{ wiki_blog.url }}/tagged/{{ block.settings.tag | strip | handleize }}"
