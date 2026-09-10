@@ -49,6 +49,10 @@
             "show_gift_card_recipient": true
           }
         },
+        "free_shipping_bar": {
+          "type": "free_shipping_bar",
+          "settings": {}
+        },
         "custom_liquid_mYJXNH": {
           "type": "custom_liquid",
           "settings": {
@@ -92,6 +96,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "free_shipping_bar",
         "custom_liquid_mYJXNH",
         "description",
         "collapsible_tab_VzCHB7",

@@ -9,6 +9,8 @@
 }
 
 .free-ship__text {
+  display: flex;
+  align-items: center;
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.4;
@@ -18,6 +20,28 @@
   font-weight: 600;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+}
+
+.free-ship__check {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.4rem;
+  block-size: 1.4rem;
+  margin-inline-end: 0.6rem;
+  color: rgb(var(--color-button));
+  animation: free-ship-check-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+.free-ship__check svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.free-ship__track-wrapper {
+  position: relative;
+  padding-block-start: 1.8rem;
 }
 
 .free-ship__track {
@@ -30,24 +54,114 @@
 }
 
 .free-ship__fill {
+  position: relative;
   display: block;
   block-size: 100%;
   inline-size: 0;
+  overflow: hidden;
   background: rgb(var(--color-button));
   border-radius: inherit;
-  transition: inline-size 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: inline-size 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.free-ship__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: free-ship-shimmer 1.6s ease-in-out infinite;
+}
+
+.free-ship__truck {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 1.8rem;
+  block-size: 1.8rem;
+  color: rgb(var(--color-foreground));
+  transform: translateX(-50%);
+  transition: inset-inline-start 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.free-ship__truck svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.free-ship--reached {
+  animation: free-ship-pop 0.5s ease-out;
 }
 
 .free-ship--reached .free-ship__fill {
-  background: rgb(var(--color-foreground));
+  background: rgb(var(--color-button));
+}
+
+.free-ship--reached .free-ship__fill::after {
+  animation: none;
+  opacity: 0;
+}
+
+.free-ship--reached .free-ship__truck {
+  color: rgb(var(--color-button));
 }
 
 .free-ship--reached .free-ship__text {
   font-weight: 600;
 }
 
+@keyframes free-ship-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
+
+@keyframes free-ship-check-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes free-ship-pop {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.7;
+  }
+  60% {
+    transform: scale(1.015);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .free-ship__fill {
+  .free-ship__fill,
+  .free-ship__truck {
     transition: none;
+  }
+
+  .free-ship__fill::after,
+  .free-ship__check,
+  .free-ship--reached {
+    animation: none;
   }
 }

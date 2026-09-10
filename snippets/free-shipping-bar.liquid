@@ -1,7 +1,10 @@
 {%- comment -%}
   Free-shipping progress bar.
 
-  Renders nothing when the cart is empty.
+  Renders nothing when the cart is empty. On the product page (no cart context
+  for a not-yet-added item) it previews the bar as if the current cart plus one
+  unit of the selected variant were in it, so shoppers can see how close this
+  purchase gets them.
 
   The threshold below is the single source of truth for this bar. It is written
   in the shop currency subunit, which is what `cart.total_price` returns.
@@ -13,43 +16,66 @@
     - the 配送情報 tab in templates/product.json
     - the FAQ row in templates/index.json
     - the shipping rules in Settings > Shipping and delivery
+
+  Accepts:
+  - preview_price: {Number} extra amount (in the same subunit) to add on top of
+    the cart total, used on the product page to preview the selected variant. (optional)
 {%- endcomment -%}
 
 {%- liquid
   assign free_shipping_threshold = 300000
+  assign preview_price = preview_price | default: 0
+  assign projected_total = cart.total_price | plus: preview_price
 
-  assign remaining = free_shipping_threshold | minus: cart.total_price
+  assign remaining = free_shipping_threshold | minus: projected_total
   assign percent = 0
   if free_shipping_threshold > 0
-    assign percent = cart.total_price | times: 100 | divided_by: free_shipping_threshold
+    assign percent = projected_total | times: 100 | divided_by: free_shipping_threshold
   endif
   if percent > 100
     assign percent = 100
   endif
+
+  assign should_render = false
+  if preview_price > 0 or cart != empty
+    assign should_render = true
+  endif
 -%}
 
-{%- if cart != empty and free_shipping_threshold > 0 -%}
+{%- if should_render and free_shipping_threshold > 0 -%}
   <div class="free-ship{% if remaining <= 0 %} free-ship--reached{% endif %}">
     <p class="free-ship__text">
       {%- if remaining > 0 -%}
         あと<span class="free-ship__amount">{{ remaining | money }}</span>で全国送料無料
       {%- else -%}
+        <span class="free-ship__check" aria-hidden="true">
+          {{- 'icon-checkmark.svg' | inline_asset_content -}}
+        </span>
         全国送料無料でお届けします
       {%- endif -%}
     </p>
-    <div
-      class="free-ship__track"
-      role="progressbar"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="{{ percent }}"
-      {% if remaining > 0 %}
-        aria-valuetext="送料無料まであと{{ remaining | money }}"
-      {% else %}
-        aria-valuetext="送料無料の条件を満たしています"
-      {% endif %}
-    >
-      <span class="free-ship__fill" style="inline-size: {{ percent }}%"></span>
+    <div class="free-ship__track-wrapper">
+      <span
+        class="free-ship__truck"
+        aria-hidden="true"
+        style="inset-inline-start: {{ percent }}%"
+      >
+        {{- 'icon-truck.svg' | inline_asset_content -}}
+      </span>
+      <div
+        class="free-ship__track"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="{{ percent }}"
+        {% if remaining > 0 %}
+          aria-valuetext="送料無料まであと{{ remaining | money }}"
+        {% else %}
+          aria-valuetext="送料無料の条件を満たしています"
+        {% endif %}
+      >
+        <span class="free-ship__fill" style="inline-size: {{ percent }}%"></span>
+      </div>
     </div>
   </div>
 {%- endif -%}
