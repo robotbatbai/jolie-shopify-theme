@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -282,8 +291,6 @@
       "note": "Instruksi khusus pesanan",
       "checkout": "Check out",
       "empty": "Keranjang Anda kosong",
-      "product_disclosure": "Pengungkapan produk",
-      "product_disclosures": "Pengungkapan produk",
       "cart_error": "Terjadi kesalahan saat memperbarui keranjang. Silakan coba lagi.",
       "cart_quantity_error_html": "Hanya dapat menambahkan {{ quantity }} item ini ke keranjang Anda.",
       "headings": {
@@ -393,6 +400,7 @@
       "view_addresses": "Lihat alamat",
       "return": "Kembali ke detail Akun"
     },
+    "account_fallback": "Akun",
     "activate_account": {
       "title": "Aktifkan akun",
       "subtext": "Buat sandi untuk mengaktifkan akunmu.",

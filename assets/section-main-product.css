@@ -385,6 +385,112 @@ a.product__text {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
 
+/* Làm nổi bật video trong product gallery */
+.product__media-item[data-media-type="video"],
+.product__media-item[data-media-type="external_video"] {
+  position: relative;
+}
+
+.product__media-item[data-media-type="video"]::before,
+.product__media-item[data-media-type="external_video"]::before {
+  content: "実物動画";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #e63946;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 3;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+/* Nút play to hơn, ở giữa */
+.product__media-item[data-media-type="video"] .product__media-icon,
+.product__media-item[data-media-type="external_video"] .product__media-icon {
+  height: 6rem;
+  width: 6rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  z-index: 2;
+  opacity: 1;
+}
+
+.product__media-item[data-media-type="video"] .product__media-icon .icon,
+.product__media-item[data-media-type="external_video"] .product__media-icon .icon {
+  width: 2rem;
+  height: 2.4rem;
+  color: #fff;
+}
+
+.product__media-item[data-media-type="video"] .deferred-media__poster-button,
+.product__media-item[data-media-type="external_video"] .deferred-media__poster-button {
+  height: 6rem;
+  width: 6rem;
+}
+
+.product__media-item[data-media-type="video"] .deferred-media__poster-button .icon,
+.product__media-item[data-media-type="external_video"] .deferred-media__poster-button .icon {
+  width: 2rem;
+  height: 2.4rem;
+}
+
+/* Animation nhấp nháy nhẹ */
+@keyframes pulse-badge {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Thumbnail list - video nổi bật */
+.thumbnail-list__item[data-media-type="video"],
+.thumbnail-list__item[data-media-type="external_video"] {
+  position: relative;
+}
+
+.thumbnail-list__item[data-media-type="video"] .thumbnail,
+.thumbnail-list__item[data-media-type="external_video"] .thumbnail {
+  border: 2px solid #e63946 !important;
+  border-radius: 6px;
+}
+
+.thumbnail-list__item[data-media-type="video"]::after,
+.thumbnail-list__item[data-media-type="external_video"]::after {
+  content: "▶ 実物動画";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(230, 57, 70, 0.9);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@keyframes pulse-video {
+  0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
 @media screen and (max-width: 749px) {
   .product__media-list {
     margin-left: -2.5rem;

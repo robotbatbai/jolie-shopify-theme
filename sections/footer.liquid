@@ -30,7 +30,7 @@
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
-    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank and settings.social_amazon_link == blank
       assign has_social_icons = false
     endif
 
@@ -287,6 +287,27 @@
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
             <ul class="list list-payment" role="list">
+              <li class="list-payment__item">
+                <img src="{{ 'paypay.svg' | file_url }}" alt="PayPay" loading="lazy">
+              </li>
+
+              <li class="list-payment__item">
+                <img src="{{ 'paidy.svg' | file_url }}" alt="Paidy" loading="lazy">
+              </li>
+
+              {% comment %} <li class="list-payment__item">
+                <img src="{{ 'seven-eleven.svg' | file_url }}" alt="7-Eleven" loading="lazy">
+              </li> {% endcomment %}
+
+              <li class="list-payment__item">
+                <img src="{{ 'familymart.svg' | file_url }}" alt="FamilyMart" loading="lazy">
+              </li>
+              <li class="list-payment__item">
+                <img src="{{ 'lawson.svg' | file_url }}" alt="LawSon" loading="lazy">
+              </li>
+              <li class="list-payment__item">
+                <img src="{{ 'ministop.svg' | file_url }}" alt="MiniStop" loading="lazy">
+              </li>
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
                   {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
@@ -302,7 +323,7 @@
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
+        <!-- <small class="copyright__content">{{ powered_by_link }}</small> -->
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
             {%- for policy in shop.policies -%}

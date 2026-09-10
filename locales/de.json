@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -282,8 +291,6 @@
       "note": "Spezielle Bestellanweisungen",
       "checkout": "Auschecken",
       "empty": "Dein Warenkorb ist leer",
-      "product_disclosure": "Produktoffenlegung",
-      "product_disclosures": "Produktoffenlegungen",
       "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
       "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
       "headings": {
@@ -393,6 +400,7 @@
       "view_addresses": "Adressen anzeigen",
       "return": "Zurück zu Kontodetails"
     },
+    "account_fallback": "Konto",
     "activate_account": {
       "title": "Konto aktivieren",
       "subtext": "Erstelle ein Passwort, um dein Konto zu aktiveren.",

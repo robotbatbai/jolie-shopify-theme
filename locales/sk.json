@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -302,8 +311,6 @@
       "note": "Špeciálne pokyny k objednávke",
       "checkout": "Platba",
       "empty": "Váš košík je prázdny",
-      "product_disclosure": "Zverejnená informácia o produkte",
-      "product_disclosures": "Zverejnené informácie o produkte",
       "cart_error": "Pri aktualizácii košíka sa vyskytla chyba. Skúste to znova.",
       "cart_quantity_error_html": "Do košíka môžete túto položku pridať len v počte {{ quantity }}.",
       "update": "Aktualizovať",
@@ -417,6 +424,7 @@
       "view_addresses": "Zobraziť adresy",
       "return": "Späť na podrobnosti o konte"
     },
+    "account_fallback": "Konto",
     "log_in": "Prihlásiť sa",
     "log_out": "Odhlásiť sa",
     "activate_account": {

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -302,8 +311,6 @@
       "note": "Получить специальные инструкции",
       "checkout": "Оформить заказ",
       "empty": "Корзина пуста.",
-      "product_disclosure": "Дополнительная информация о товаре",
-      "product_disclosures": "Дополнительная информация о товаре",
       "cart_error": "Не удалось обновить корзину. Повторите попытку.",
       "cart_quantity_error_html": "Максимально допустимое количество единиц этого товара в корзине: {{ quantity }}.",
       "update": "Обновить",
@@ -417,6 +424,7 @@
       "view_addresses": "Посмотреть адреса",
       "return": "Вернуться к сведениям учетной записи"
     },
+    "account_fallback": "Учетная запись",
     "log_in": "Войти",
     "log_out": "Выйти",
     "activate_account": {

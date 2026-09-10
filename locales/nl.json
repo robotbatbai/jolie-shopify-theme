@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -282,8 +291,6 @@
       "note": "Speciale instructies voor bestelling",
       "checkout": "Afrekenen",
       "empty": "Je winkelwagen is leeg",
-      "product_disclosure": "Productvermelding",
-      "product_disclosures": "Productvermeldingen",
       "cart_error": "Er is een fout opgetreden bij het bijwerken van je winkelwagen. Probeer het opnieuw.",
       "cart_quantity_error_html": "Je kunt maar {{ quantity }} van dit artikel toevoegen aan je winkelwagen.",
       "headings": {
@@ -393,6 +400,7 @@
       "view_addresses": "Adressen bekijken",
       "return": "Terug naar Accountgegevens"
     },
+    "account_fallback": "Account",
     "activate_account": {
       "title": "Account activeren",
       "subtext": "Maak je wachtwoord aan om je account te activeren.",

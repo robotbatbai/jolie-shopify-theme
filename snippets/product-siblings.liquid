@@ -1,0 +1,121 @@
+{%- if product.metafields.custom.product_family.value != blank -%}
+  <div class="product-siblings-container" style="margin: 20px 0;">
+    <p class="form__label" style="font-weight: bold; margin-bottom: 12px; font-size: 1.4rem;">
+      お好みの株・サイズを選択 
+    </p>
+    
+    {%- comment -%} Thêm ID 'SiblingGrid' để JS có thể can thiệp {%- endcomment -%}
+    <div id="SiblingGrid" class="amazon-style-grid">
+      
+      {%- for sibling in product.metafields.custom.product_family.value -%}
+        {%- assign is_current = false -%}
+        {%- if sibling.handle == product.handle -%}
+          {%- assign is_current = true -%}
+        {%- endif -%}
+
+        {%- assign display_name = sibling.title -%}
+        {%- if sibling.metafields.custom.short_name != blank -%}
+          {%- assign display_name = sibling.metafields.custom.short_name -%}
+        {%- elsif sibling.title contains '-' -%}
+          {%- assign display_name = sibling.title | split: '-' | last | strip -%}
+        {%- endif -%}
+
+        {%- comment -%} Thêm class 'is-current-item' để JS tìm thấy mục đang chọn {%- endcomment -%}
+        <a href="{{ sibling.url }}" 
+           class="amazon-card {% if is_current %}is-active is-current-item{% endif %} {% unless sibling.available %}is-out-of-stock{% endunless %}">
+          
+          <div class="card-image">
+            <img src="{{ sibling.featured_media | image_url: width: 200 }}" alt="{{ display_name }}" loading="lazy">
+          </div>
+          
+          <div class="card-info">
+            <span class="card-title">{{ display_name }}</span>
+            <span class="card-price">{{ sibling.price | money }}</span>
+            
+            {%- if sibling.available -%}
+              <span class="stock-status in-stock">在庫あり。</span>
+            {%- else -%}
+              <span class="stock-status out-of-stock">在庫切れ</span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+      
+    </div>
+  </div>
+
+  <style>
+    .amazon-style-grid {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 10px 2px;
+      scroll-behavior: smooth; /* Tạo hiệu ứng cuộn mượt */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .amazon-card {
+      flex: 0 0 130px; /* Độ rộng cố định */
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #D5D9D9;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #0F1111;
+      background: #fff;
+      transition: all 0.1s ease;
+      scroll-margin: 0 40px; /* Giúp mục hiện tại không bị dính sát lề khi cuộn tới */
+    }
+
+    .amazon-card.is-active {
+      border: 2px solid #007185;
+      background-color: #F0FDFF;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+
+    .card-image img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .card-info { padding: 8px; display: flex; flex-direction: column; gap: 2px; }
+    .card-title { font-size: 11px; font-weight: bold; line-height: 1.2; height: 2.4em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .card-price { font-size: 14px; color: #B12704; font-weight: 500; }
+    .stock-status { font-size: 10px; margin-top: 2px; }
+    .in-stock { color: #007600; }
+    .out-of-stock { color: #B12704; }
+
+    /* Ẩn thanh cuộn trên một số trình duyệt để UI sạch hơn */
+    .amazon-style-grid::-webkit-scrollbar { height: 3px; }
+    .amazon-style-grid::-webkit-scrollbar-thumb { background: #eee; border-radius: 10px; }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const container = document.getElementById('SiblingGrid');
+      const activeItem = container.querySelector('.is-current-item');
+      
+      if (activeItem) {
+        // Tính toán vị trí để đưa mục active vào giữa container
+        const containerWidth = container.offsetWidth;
+        const itemOffset = activeItem.offsetLeft;
+        const itemWidth = activeItem.offsetWidth;
+        
+        const scrollPosition = itemOffset - (containerWidth / 2) + (itemWidth / 2);
+        
+        // Thực hiện cuộn
+        container.scrollLeft = scrollPosition;
+      }
+    });
+  </script>
+{%- endif -%}

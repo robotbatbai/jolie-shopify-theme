@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_P4ciWM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JdQAdF": {
+          "type": "heading",
+          "settings": {
+            "heading": "モンステラ・デリシオーサの斑入り変異種について",
+            "heading_size": "h1"
+          }
+        },
+        "text_9chjBr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>モンステラ・デリシオーサは、その独特な葉の形状と育てやすさから、観葉植物として非常に人気があります。しかし、近年では、通常のモンステラとは異なる、斑入りの変異種が注目を集めています。<br/><br/><strong>斑入りモンステラ・デリシオーサとは？<br/></strong>斑入りモンステラ・デリシオーサとは、葉に白い斑や模様が入ったモンステラの変異種のことです。これらの斑は、葉緑素の欠乏によって生じ、そのパターンや大きさは個体によって大きく異なります。</p><p><strong>斑入りモンステラ・デリシオーサの種類<br/></strong>斑入りモンステラ・デリシオーサには、さまざまな種類があります。代表的なものとしては、以下のようなものが挙げられます。</p>"
+          }
+        },
+        "button_gadBE9": {
+          "type": "button",
+          "settings": {
+            "button_label": "販売中の斑入りモンステラ・デリシオーサ一覧",
+            "button_link": "shopify://collections/モンステラ-デリシオーサ",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JdQAdF",
+        "text_9chjBr",
+        "button_gadBE9"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_RpdFTx": {
+      "type": "multirow",
+      "blocks": {
+        "row_WFtwVn": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Monstera_deliciosa-Albo.jpg",
+            "caption": "モンステラ・デリシオーサ・アルボ",
+            "heading": "Monstera Deliciosa Albo",
+            "text": "<p>緑色の葉に白い斑が入るのが最大の特徴です。この斑の入り方は個体ごとに異なり、唯一無二の模様を作り出します。</p><p>白い斑は葉緑素の欠乏によるもので、これがモンステラ・デリシオーサ・アルボの希少性と美しさを際立たせています。<br/><br/>モンステラ・デリシオーサ・アルボは、ボルシギアナ・アルボとよく似ており、葉の形が小さく、登る性質があります。これは最初の変種の一つと見なされることもあります。</p>",
+            "button_label": "モンステラ ボルシギアナ アルボ",
+            "button_link": "shopify://collections/モンステラ-ボルシギアナの特徴と育て方"
+          }
+        },
+        "row_jFxEhc": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Monstera-Aurea.jpg",
+            "caption": "モンステラ・デリシオーサ・アウレア（マルモラータ）",
+            "heading": "Monstera Deliciosa Aurea (Marmorata)",
+            "text": "<p>モンステラ・デリシオーサ・アウレアの最大の特徴は、緑色の葉に現れる鮮やかな黄金色の斑です。この斑は、まるで大理石（マルモラータ）のような模様を描き出し、非常に美しいです。</p><p>斑の入り方は個体によって異なり、同じ模様のものはほとんど存在しません。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_cD346m": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/mercari_image_1_a6397abc-d931-4c69-ac7d-3f8318e59b0f.jpg",
+            "caption": "モンステラ・タイ・コンステレーション",
+            "heading": "Monstera Thai Constellation",
+            "text": "<p>「コンステレーション（星座）」という名前の通り、緑色の葉に星が散りばめられたような、クリーム色の斑が入ります。</p><p>この斑の入り方は、まるで夜空の星を思わせるような、独特で美しい模様を描き出します。<br/><br/>おそらく現在最も人気のある斑入りモンステラでしょう</p>",
+            "button_label": "詳細",
+            "button_link": "shopify://products/モンステラ-デリシオーサ-タイコンステレーション-厳選斑入り"
+          }
+        },
+        "row_iMYnRh": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/mercari_image_1_1_caed5378-de1c-416d-9a5b-6d83d8e2de17.jpg",
+            "caption": "モンステラ・デリシオーサ・ホワイトモンスター",
+            "heading": "Monstera Deliciosa White Monster",
+            "text": "<p>白やクリーム色の斑入りが特徴で、アルボ（Albo）に似ていますが、特に白い部分が広範囲に及び、時にはほぼ真っ白な葉が現れることもあります。</p>",
+            "button_label": "詳細",
+            "button_link": "shopify://products/モンステラ-デリシオーサ-ホワイトモンスター-天津蘭"
+          }
+        },
+        "row_nMWPKY": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/mercari_image_1_afa4de95-c3f8-4615-8217-e42f8a496f4f.jpg",
+            "caption": "モンステラ・デリシオーサ イエローマリリン",
+            "heading": "Monstera Deliciosa Yellow Marilyn",
+            "text": "<p>濃緑のハート型葉に鮮やかな黄色～クリーム色の不規則な斑が入る品種。斑のコントラストが華やかで、明るい印象を与えます。成長とともにモンステラ特有の切れ込みが現れ、個体差が大きいのが魅力。希少性が高く、コレクター向けです。</p>",
+            "button_label": "詳細",
+            "button_link": "shopify://products/モンステラデリシオーサ-イエローマリリン-monstera-deliciosa-yellow-marilyn-組織培養苗-順化済"
+          }
+        },
+        "row_xVQLB4": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Monstera_deliciosa_Mint_9_f2bf5208-5c50-4ccf-9efa-3753e70bbb1f.jpg",
+            "caption": "モンステラ・デリシオーサ・ミント",
+            "heading": "Monstera Deliciosa Mint",
+            "text": "<p>濃緑の葉に淡いミントグリーン～クリーム色の斑が入り、爽やかな模様が特徴。組織培養苗が多く、斑の安定性が高いです。新芽のミント色が可愛らしく、成長が遅めながらも手入れ次第で美しく育ちます。インテリアに柔らかなアクセントを加えます。</p>",
+            "button_label": "詳細",
+            "button_link": "shopify://products/モンステラ-デリシオーサ-ホワイトモンスター-天津蘭"
+          }
+        }
+      },
+      "block_order": [
+        "row_WFtwVn",
+        "row_jFxEhc",
+        "row_cD346m",
+        "row_iMYnRh",
+        "row_nMWPKY",
+        "row_xVQLB4"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_zBtpfY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_y9qzBx": {
+          "type": "heading",
+          "settings": {
+            "heading": "斑入りモンステラ・デリシオーサ",
+            "heading_size": "h1"
+          }
+        },
+        "text_qkeQcf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>斑入りモンステラ・デリシオーサは、その美しい葉の模様と希少性から、観葉植物愛好家の間で非常に人気があります。育て方は通常のモンステラとほぼ同様ですが、斑入りの部分はより明るい場所で管理する必要があります。</p><p>もし、あなたがモンステラ・デリシオーサの斑入り変異種に興味を持たれたら、ぜひ育ててみてはいかがでしょうか。</p>"
+          }
+        },
+        "button_pkAwW6": {
+          "type": "button",
+          "settings": {
+            "button_label": "販売中の斑入りモンステラ・デリシオーサ一覧",
+            "button_link": "shopify://collections/モンステラ-デリシオーサ",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_y9qzBx",
+        "text_qkeQcf",
+        "button_pkAwW6"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_P4ciWM",
+    "multirow_RpdFTx",
+    "rich_text_zBtpfY"
+  ]
+}

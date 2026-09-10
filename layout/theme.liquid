@@ -1,10 +1,12 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+ {%- render 'ecom_header' -%}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+    <meta name="google-site-verification" content="OQ-ptK_nXcHySSbnp2hBHaRm43F-iibkvHx5xli5t80" />
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -14,6 +16,7 @@
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
+    
 
     <title>
       {{ page_title }}
@@ -28,36 +31,12 @@
 
     {% render 'meta-tags' %}
 
-    <script type="module">
-      import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';
-
-      window.StandardEvents = StandardEvents;
-
-      customElements.define('collection-component', StandardEvents.createViewEventElement());
-      customElements.define(
-        'product-component',
-        StandardEvents.createViewEventElement(HTMLElement, { defaultTrigger: 'intersect' }),
-      );
-
-      document.addEventListener('DOMContentLoaded', () => {
-        const template = document.querySelector('main[data-template]')?.dataset.template || '';
-        document.dispatchEvent(
-          new StandardEvents.PageViewEvent({
-            page: { template, title: document.title, url: window.location.href },
-          })
-        );
-      }, { once: true });
-    </script>
-
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'cart-disclosure-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'cart-disclosure-tooltip.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'standard-actions-override.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -259,8 +238,9 @@
       }
 
       body {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
         min-height: 100%;
         margin: 0;
         font-size: 1.5rem;
@@ -332,13 +312,7 @@
 
     {% sections 'header-group' %}
 
-    <main
-      id="MainContent"
-      class="content-for-layout focus-none"
-      role="main"
-      tabindex="-1"
-      data-template="{{ template.name }}"
-    >
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
@@ -401,5 +375,5 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  </body>
+  {%- render "ecom_footer"-%}</body>
 </html>

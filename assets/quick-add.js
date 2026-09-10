@@ -39,8 +39,6 @@ if (!customElements.get('quick-add-modal')) {
             }
             if (window.ProductModel) window.ProductModel.loadShopifyXR();
 
-            this.modalContent.querySelector('product-component')?.dispatchViewEvent?.();
-
             super.show(opener);
           })
           .finally(() => {

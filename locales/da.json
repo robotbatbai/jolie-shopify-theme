@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -282,8 +291,6 @@
       "note": "Særlige instruktioner til ordre",
       "checkout": "Gå til betaling",
       "empty": "Din indkøbskurv er tom",
-      "product_disclosure": "Produktdeklaration",
-      "product_disclosures": "Produktdeklarationer",
       "cart_error": "Der opstod en fejl under opdatering af din indkøbskurv. Prøv igen.",
       "cart_quantity_error_html": "Du kan kun lægge {{ quantity }} af denne vare i indkøbskurven.",
       "headings": {
@@ -393,6 +400,7 @@
       "view_addresses": "Se adresser",
       "return": "Tilbage til kontooplysninger"
     },
+    "account_fallback": "Konto",
     "activate_account": {
       "title": "Aktivér konto",
       "subtext": "Opret en adgangskode, så du kan aktivere din konto.",
