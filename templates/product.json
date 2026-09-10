@@ -1,21 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
-        "rating_qrAzEq": {
-          "type": "rating",
-          "settings": {}
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -24,12 +11,10 @@
           }
         },
         "title": {
-          "type": "title",
-          "settings": {}
+          "type": "title"
         },
         "price": {
-          "type": "price",
-          "settings": {}
+          "type": "price"
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -39,8 +24,7 @@
           }
         },
         "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+          "type": "quantity_selector"
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -49,33 +33,8 @@
             "show_gift_card_recipient": true
           }
         },
-        "custom_liquid_mYJXNH": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.metafields.custom.amazon_link != blank %}\n  <a href=\"{{ product.metafields.custom.amazon_link }}\" target=\"_blank\" style=\"text-decoration: none;\">\n    <button style=\"\n      background-color: #FF9900; \n      color: #000; \n      font-weight: bold; \n      padding: 15px 20px; \n      width: 100%; \n      border: none; \n      border-radius: 5px; \n      cursor: pointer; \n      font-size: 16px;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    \">\n      <span style=\"margin-right: 8px;\">🛒</span> Amazonで購入\n    </button>\n  </a>\n \n\n{% endif %}"
-          }
-        },
         "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "collapsible_tab_VzCHB7": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "配送情報",
-            "icon": "plant",
-            "content": "<h2>配送</h2><p><strong>【配送・送料について】</strong></p><p>当店では、商品のサイズに合わせて最適な配送方法でお届けいたします。<br/>※ご注文金額が3,000円未満の場合、送料は一律500円となります。</p><h2><strong>✨ お買い上げ合計 3,000円以上で全国送料無料 ✨</strong></h2><p><strong>【発送の目安】</strong> 配送のご依頼を受けてから、一部の受注生産商品を除き、<strong>2営業日以内</strong>に発送いたします。</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_JwPqFk": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "注意事項",
-            "icon": "plant",
-            "content": "<ul><li>写真はイメージです。発送時には同等の商品を厳選してお届けします。</li><li>植物の大きさや斑の模様、茎、根の状態など、写真をよくご確認のうえご検討ください。</li><li>植物は生き物のため、個体差や状態の変化がございます。お届け後の管理についても、下記の栽培ガイドを参考にしてください。</li><li>商品はプラスチック鉢のまま発送いたします。</li><li>梱包はリサイクル素材を使用し、丁寧に行いますが、輸送中の状況によっては葉の傷みやスレ、枯れなどの変化が発生する可能性があります。</li></ul>",
-            "page": ""
-          }
+          "type": "description"
         },
         "share": {
           "type": "share",
@@ -85,94 +44,60 @@
         }
       },
       "block_order": [
-        "rating_qrAzEq",
         "vendor",
         "title",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "custom_liquid_mYJXNH",
         "description",
-        "collapsible_tab_VzCHB7",
-        "collapsible_tab_JwPqFk",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
+        "media_position": "left",
+        "gallery_layout": "stacked",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
         "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
       }
     },
-    "17428629692d628b2d": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_WKmyF4": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_WKmyF4"
-      ],
+    "disclosures": {
+      "type": "disclosures",
       "settings": {
-        "include_margins": true
+        "padding_top": 36,
+        "padding_bottom": 0
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "一緒に購入されることが多い植物",
+        "heading": "You may also like",
         "heading_size": "h2",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
-      }
-    },
-    "video_yjcFBM": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "自社の観葉植物を育てる場所",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=NquytI7J-sA",
-        "cover_image": "shopify://shop_images/79773960a09e4bb6c6174ad4787bd1a5.jpg",
-        "description": "モンステライエローマリリンを育てる場所",
-        "full_width": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
-    "17428629692d628b2d",
-    "related-products",
-    "video_yjcFBM"
+    "disclosures",
+    "related-products"
   ]
 }

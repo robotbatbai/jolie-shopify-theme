@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "settings_schema": {
     "colors": {
@@ -368,6 +359,17 @@
           "options__3": {
             "label": "Efekt uniesienia 3D"
           }
+        }
+      }
+    },
+    "customer_accounts": {
+      "name": "Konta klientów",
+      "settings": {
+        "paragraph": {
+          "content": "[Zarządzaj widocznością](/admin/settings/customer_accounts) w ustawieniach konta klienta."
+        },
+        "customer_account_menu": {
+          "label": "Menu"
         }
       }
     }
@@ -996,12 +998,11 @@
         "menu_color_scheme": {
           "label": "Kolorystyka menu"
         },
-        "enable_customer_avatar": {
-          "label": "Awatar konta klienta",
-          "info": "Widoczny tylko wtedy, gdy klienci są zalogowani do Shop. [Zarządzaj kontami klientów](/admin/settings/customer_accounts)"
-        },
         "header__utilities": {
           "content": "Użyteczne funkcje"
+        },
+        "customer_account_menu": {
+          "content": "Zarządzaj kontami klientów w [ustawieniach szablonu](/editor?context=theme&category=customer%20accounts)."
         }
       }
     },
@@ -3164,30 +3165,6 @@
         "name": "Zwijana treść"
       }
     },
-    "main-account": {
-      "name": "Konto"
-    },
-    "main-activate-account": {
-      "name": "Aktywacja konta"
-    },
-    "main-addresses": {
-      "name": "Adresy"
-    },
-    "main-login": {
-      "name": "Zaloguj",
-      "shop_login_button": {
-        "enable": "Włącz logowanie przez Shop"
-      }
-    },
-    "main-order": {
-      "name": "Zamówienie"
-    },
-    "main-register": {
-      "name": "Rejestracja"
-    },
-    "main-reset-password": {
-      "name": "Resetowanie hasła"
-    },
     "related-products": {
       "name": "Powiązane produkty",
       "settings": {
@@ -3404,6 +3381,20 @@
       },
       "presets": {
         "name": "Lista szybkich zamówień"
+      }
+    },
+    "disclosures": {
+      "name": "Informacje prawne",
+      "settings": {
+        "paragraph": {
+          "content": "Wymagane ostrzeżenia dotyczące bezpieczeństwa i informacje prawne dla tego produktu."
+        },
+        "heading": {
+          "label": "Nagłówek"
+        },
+        "open_by_default": {
+          "label": "Domyślnie otwarte"
+        }
       }
     }
   }

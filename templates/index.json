@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner": {
@@ -14,7 +5,6 @@
       "blocks": {
         "heading": {
           "type": "heading",
-          "disabled": true,
           "settings": {
             "heading": "Browse our latest products",
             "heading_size": "h0"
@@ -22,7 +12,6 @@
         },
         "button": {
           "type": "buttons",
-          "disabled": true,
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
@@ -37,217 +26,36 @@
         "heading",
         "button"
       ],
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/Screenshot_2025-09-15_at_22.52.05.png",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
         "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
         "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
-    "video_ECJFFz": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "自社の観葉植物を育てる場所",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=NquytI7J-sA",
-        "cover_image": "shopify://shop_images/79773960a09e4bb6c6174ad4787bd1a5.jpg",
-        "description": "自社の観葉植物を育てる場所",
-        "full_width": false,
-        "color_scheme": "scheme-3",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "slideshow_fWj7D6": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_mUBAMq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/jolie-banner.png",
-            "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
-          }
-        },
-        "slide_FdkJB7": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/5000_insta.png",
-            "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        },
-        "slide_YWA6gy": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Monstera_Leaves_Zoom_Virtual_Background_dae4bb48-228a-4984-9571-6e194f4c1e49.png",
-            "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_mUBAMq",
-        "slide_FdkJB7",
-        "slide_YWA6gy"
-      ],
-      "name": "t:sections.slideshow.presets.name",
-      "settings": {
-        "layout": "grid",
-        "slide_height": "adapt_image",
-        "slider_visual": "dots",
-        "auto_rotate": true,
-        "change_slides_speed": 5,
         "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": "ブランドについてのスライドショー"
-      }
-    },
-    "featured_collection_Rfkmb8": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "特別なコレクション",
-        "products_to_show": 4,
-        "title": "希少コレクション",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_YCRWCn": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "人気アイテム",
-        "products_to_show": 8,
-        "title": "人気アイテム",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_fMtT6j": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "新着アイテム",
-        "products_to_show": 8,
-        "title": "新着アイテム",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "featured_collection": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "collection": "モンステラ",
-        "products_to_show": 4,
-        "title": "モンステラ",
-        "heading_size": "h1",
+        "title": "Featured products",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
         "columns_desktop": 4,
-        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -255,419 +63,13 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
         "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_Haca7e": {
-      "type": "featured-collection",
-      "disabled": true,
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "フィロデンドロン",
-        "products_to_show": 4,
-        "title": "フィロデンドロン ",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_9t8mmr": {
-      "type": "featured-collection",
-      "disabled": true,
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "アロカシア",
-        "products_to_show": 4,
-        "title": "アロカシア",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_banner_9znGyB": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_iYPzg8": {
-          "type": "heading",
-          "settings": {
-            "heading": "画像バナー",
-            "heading_size": "h1"
-          }
-        },
-        "text_MDhjRc": {
-          "type": "text",
-          "settings": {
-            "text": "テンプレートのバナー画像またはコンテンツに関する詳細をお客様に提供します。",
-            "text_style": "body"
-          }
-        },
-        "buttons_KnJyH7": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "ボタンのラベル",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "ボタンのラベル",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_iYPzg8",
-        "text_MDhjRc",
-        "buttons_KnJyH7"
-      ],
-      "disabled": true,
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
-    "featured_collection_44mWwA": {
-      "type": "featured-collection",
-      "disabled": true,
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "アンスリウム",
-        "products_to_show": 4,
-        "title": "<strong>アンスリウム</strong>",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_kEcEeP": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "園芸用品",
-        "products_to_show": 4,
-        "title": "園芸用品",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "collection_list_NiGMhR": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_cnQDbR": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "モンステラ"
-          }
-        },
-        "featured_collection_8rpi3r": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "アロカシア"
-          }
-        },
-        "featured_collection_CdbFwM": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "アンスリウム"
-          }
-        },
-        "featured_collection_w9eVFH": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "フィロデンドロン"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_cnQDbR",
-        "featured_collection_8rpi3r",
-        "featured_collection_CdbFwM",
-        "featured_collection_w9eVFH"
-      ],
-      "settings": {
-        "title": "人気のコレクション",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-3",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "rich_text_rpxY7T": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_xadgKe": {
-          "type": "heading",
-          "settings": {
-            "heading": "イベント出店情報",
-            "heading_size": "h1"
-          }
-        },
-        "text_XTy7hw": {
-          "type": "text",
-          "settings": {
-            "text": "<p>3月22・23日に京王新宿店で開催される「GREAT GREEN GARDENS」に参加してみませんか？<br/>12組の出店者が集まり、多彩な植物や楽しい企画が楽しめるイベントです。希少な植物や最新品種に出会えるチャンス！ぜひ足を運んでみてください。</p>"
-          }
-        },
-        "button_8RndgK": {
-          "type": "button",
-          "settings": {
-            "button_label": "詳細情報",
-            "button_link": "shopify://blogs/news/great-green-gardens",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_xadgKe",
-        "text_XTy7hw",
-        "button_8RndgK"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "featured_blog_6CkjHY": {
-      "type": "featured-blog",
-      "name": "t:sections.featured-blog.presets.name",
-      "settings": {
-        "blog": "news",
-        "post_limit": 3,
-        "heading": "ブログ記事",
-        "heading_size": "h1",
-        "columns_desktop": 3,
-        "show_view_all": true,
-        "show_image": true,
-        "show_date": false,
-        "show_author": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "177358803622f1911a": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_cards_carousel_jeQDQL": {
-          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "show_sample_reviews": true,
-            "reviews_selection": "all",
-            "products": [],
-            "star_rating": "all",
-            "show_review_media": true,
-            "display_order": "media_first",
-            "no_image_fallback": "review_text_only",
-            "max_reviews": 20,
-            "review_length": "medium",
-            "text_size": "medium",
-            "image_ratio": "1",
-            "reviews_shown": 4,
-            "show_reviewer_name": true,
-            "show_product_name": true,
-            "hide_arrows_mobile": true,
-            "arrows_position": "sides",
-            "max_width": 1100,
-            "corner_styling": "soft",
-            "header_text_color": "#000000",
-            "text_color": "#000000",
-            "card_color": "#f9f9f9",
-            "stars_color": "",
-            "arrows_color": "#000000",
-            "transition_speed": 5,
-            "header_text": "お客様の声",
-            "show_average_rating": true,
-            "rating_display": "default"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_cards_carousel_jeQDQL"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "collapsible_content_FKkYhT": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_bcq6L8": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "商品について",
-            "icon": "check_mark",
-            "row_content": "<ul><li>写真はイメージです。発送時には同等の商品を厳選してお届けします。</li><li>植物の大きさや斑の模様、茎、根の状態など、写真をよくご確認のうえご検討ください。</li><li>植物は日々成長するため、掲載写真とは異なる状態の場合があります。</li><li>植物は生き物のため、個体差や状態の変化がございます。お届け後の管理についても、下記の栽培ガイドを参考にしてください。</li><li>商品はプラスチック鉢のまま発送いたします。</li><li>梱包はリサイクル素材を使用し、丁寧に行いますが、輸送中の状況によっては葉の傷みやスレ、枯れなどの変化が発生する可能性があります。</li></ul>",
-            "page": ""
-          }
-        },
-        "collapsible_row_Xa7HBH": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "配送情報について",
-            "icon": "check_mark",
-            "row_content": "<h2>配送</h2><p><strong>【配送・送料について】</strong></p><p>当店では、商品のサイズに合わせて最適な配送方法でお届けいたします。<br/>※ご注文金額が3,000円未満の場合、送料は一律500円となります。</p><h2><strong>✨ お買い上げ合計 3,000円以上で全国送料無料 ✨</strong></h2><p><strong>【発送の目安】</strong> 配送のご依頼を受けてから、一部の受注生産商品を除き、<strong>2営業日以内</strong>に発送いたします。</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_nEc8DN": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "返品・交換について",
-            "icon": "check_mark",
-            "row_content": "<ul><li>商品到着時に「生育不良」と判断される場合は、返品・交換を承ります。<br/>　※配送中の傷みではないと当店が判断した場合に限ります。<br/>　※送料は当店が負担いたします。</li><li>商品到着後、1日以内に必ず中身をご確認ください。</li><li>開封時の撮影をお願いいたします。返品・交換の際に必要となる場合があります。</li><li>植物の枯れや、葉・茎の折れに対する保証はいたしかねます。<br/>　※植物の特性としてご理解ください。</li></ul><p>商品の性質およびすり替え防止のため、お客様都合による返品・交換はお受けできません。</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><ul><li><br/></li></ul>",
-            "page": ""
-          }
-        },
-        "collapsible_row_qey8gX": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "領収書について",
-            "icon": "check_mark",
-            "row_content": "<p><strong>Q. 領収書は発行できますか？</strong><br/>はい、発行可能です。SHOPアカウントからのご購入も対応しております。</p><p><strong>Q. 宛名や品目の指定はできますか？</strong><br/>はい、ご指定いただけます。</p><p><strong>【ご依頼方法】</strong><br/>ご注文時、決済画面にある「注文に関する特別な指示・備考」欄へ、下記内容をご記入ください。<br/>・宛名<br/>・品目<br/>・但し書き（必要な場合）</p><p>ご不明点がございましたら、お気軽にお問い合わせください。</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_RihRiw": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "価格の違いについて（公式サイトとAmazon）",
-            "icon": "check_mark",
-            "row_content": "<p><strong>Q. 公式サイトとAmazonで価格が異なるのはなぜですか？</strong><br/>販売プラットフォームごとに、手数料・ポイント還元・セール施策などの条件が異なるため、販売価格が変動する場合がございます。</p><p>Amazonでは、販売手数料やFBA手数料、キャンペーン費用等が含まれるため、公式サイトと価格が異なることがございます。</p><p>何卒ご理解いただけますと幸いです。</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_bcq6L8",
-        "collapsible_row_Xa7HBH",
-        "collapsible_row_nEc8DN",
-        "collapsible_row_qey8gX",
-        "collapsible_row_RihRiw"
-      ],
-      "name": "t:sections.collapsible_content.presets.name",
-      "settings": {
-        "caption": "",
-        "heading": "よくあるご質問",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "container_color_scheme": "",
-        "color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
-    "video_ECJFFz",
-    "slideshow_fWj7D6",
-    "featured_collection_Rfkmb8",
-    "featured_collection_YCRWCn",
-    "featured_collection_fMtT6j",
-    "featured_collection",
-    "featured_collection_Haca7e",
-    "featured_collection_9t8mmr",
-    "image_banner_9znGyB",
-    "featured_collection_44mWwA",
-    "featured_collection_kEcEeP",
-    "collection_list_NiGMhR",
-    "rich_text_rpxY7T",
-    "featured_blog_6CkjHY",
-    "177358803622f1911a",
-    "collapsible_content_FKkYhT"
+    "featured_collection"
   ]
 }
