@@ -9,6 +9,46 @@
  */
 {
   "sections": {
+    "wiki_nav": {
+      "type": "wiki-aroids-nav",
+      "blocks": {
+        "category_monstera": {
+          "type": "category",
+          "settings": { "label": "モンステラ", "tag": "monstera" }
+        },
+        "category_anthurium": {
+          "type": "category",
+          "settings": { "label": "アンスリウム", "tag": "anthurium" }
+        },
+        "category_alocasia": {
+          "type": "category",
+          "settings": { "label": "アロカシア", "tag": "alocasia" }
+        },
+        "category_philodendron": {
+          "type": "category",
+          "settings": { "label": "フィロデンドロン", "tag": "philodendron" }
+        },
+        "category_other": {
+          "type": "category",
+          "settings": { "label": "その他のアロイド", "tag": "other", "link": "/pages/wiki-aroids" }
+        }
+      },
+      "block_order": [
+        "category_monstera",
+        "category_anthurium",
+        "category_alocasia",
+        "category_philodendron",
+        "category_other"
+      ],
+      "settings": {
+        "heading": "アロイド図鑑のカテゴリー",
+        "show_all_link": true,
+        "all_label": "すべて",
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 8
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
@@ -23,6 +63,7 @@
     }
   },
   "order": [
+    "wiki_nav",
     "main"
   ]
 }

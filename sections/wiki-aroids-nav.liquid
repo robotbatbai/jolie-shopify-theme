@@ -1,0 +1,165 @@
+{% comment %}
+  Category chips for the aroid wiki, meant for the blog and blog tag templates
+  so that /blogs/<wiki>/tagged/<tag> keeps the same navigation as the hub page.
+{% endcomment %}
+
+{{ 'section-wiki-aroids.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="wiki-aroids color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="wiki__nav-heading h5">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <nav class="wiki__nav wiki__nav--links" aria-label="{{ section.settings.heading | escape }}">
+      {%- if section.settings.show_all_link -%}
+        <a
+          class="wiki__tab{% if current_tags == blank %} wiki__tab--current{% endif %}"
+          href="{{ blog.url }}"
+          {% if current_tags == blank %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span class="wiki__tab-label">{{ section.settings.all_label | escape }}</span>
+        </a>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign category_tag = block.settings.tag | strip
+          assign is_current = false
+          if category_tag != blank and current_tags contains category_tag
+            assign is_current = true
+          endif
+
+          assign category_url = block.settings.link
+          if category_url == blank and category_tag != blank
+            assign tag_handle = category_tag | handleize
+            assign category_url = blog.url | append: '/tagged/' | append: tag_handle
+          endif
+        -%}
+        <a
+          class="wiki__tab{% if is_current %} wiki__tab--current{% endif %}"
+          href="{{ category_url | default: blog.url }}"
+          {% if is_current %}
+            aria-current="page"
+          {% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <span class="wiki__tab-label">{{ block.settings.label | escape }}</span>
+        </a>
+      {%- endfor -%}
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "アロイド Wiki ナビ",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "アロイド図鑑のカテゴリー",
+      "label": "見出し"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_link",
+      "default": true,
+      "label": "「すべて」リンクを表示する"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "default": "すべて",
+      "label": "「すべて」リンクのラベル"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "カテゴリー",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "モンステラ",
+          "label": "カテゴリー名"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "default": "monstera",
+          "label": "記事タグ"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "リンク先（任意）",
+          "info": "空欄の場合はこのブログのタグページにリンクします。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "アロイド Wiki ナビ",
+      "blocks": [
+        { "type": "category", "settings": { "label": "モンステラ", "tag": "monstera" } },
+        { "type": "category", "settings": { "label": "アンスリウム", "tag": "anthurium" } },
+        { "type": "category", "settings": { "label": "アロカシア", "tag": "alocasia" } },
+        { "type": "category", "settings": { "label": "フィロデンドロン", "tag": "philodendron" } },
+        { "type": "category", "settings": { "label": "その他のアロイド", "tag": "other" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

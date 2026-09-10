@@ -1,0 +1,514 @@
+{{ 'section-wiki-aroids.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'wiki-aroids.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign wiki_blog = blogs[section.settings.blog]
+  assign limit = section.settings.articles_per_category
+
+  comment
+    Tags of every category except the catch-all one, used to decide which
+    articles belong to the "other" category.
+  endcomment
+  assign main_tags = ''
+  for block in section.blocks
+    unless block.settings.is_catch_all
+      assign category_tag = block.settings.tag | strip | downcase
+      if category_tag != blank
+        assign main_tags = main_tags | append: category_tag | append: '~~'
+      endif
+    endunless
+  endfor
+  assign main_tag_list = main_tags | split: '~~'
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  #shopify-section-{{ section.id }} {
+    --wiki-columns: {{ section.settings.columns_desktop }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="wiki-aroids color-{{ section.settings.color_scheme }} gradient">
+  <wiki-aroids
+    class="wiki page-width section-{{ section.id }}-padding"
+    data-results-label="{{ 'templates.search.title' | t | escape }}"
+  >
+    <div class="wiki__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wiki__heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="wiki__description rte">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.show_search -%}
+        <div class="wiki__search">
+          <label class="visually-hidden" for="WikiSearch-{{ section.id }}">
+            {{- 'general.search.search' | t -}}
+          </label>
+          <input
+            id="WikiSearch-{{ section.id }}"
+            class="wiki__search-input"
+            type="search"
+            autocomplete="off"
+            placeholder="{{ section.settings.search_placeholder | escape }}"
+            data-wiki-search
+          >
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if wiki_blog == blank or wiki_blog.articles_count == 0 -%}
+      <p class="wiki__empty">{{ section.settings.empty_text | escape }}</p>
+    {%- else -%}
+      <nav class="wiki__nav" aria-label="{{ section.settings.nav_label | escape }}" data-wiki-nav>
+        {%- for block in section.blocks -%}
+          {%- assign panel_id = 'WikiPanel-' | append: section.id | append: '-' | append: block.id -%}
+          <a
+            id="WikiTab-{{ section.id }}-{{ block.id }}"
+            class="wiki__tab"
+            href="#{{ panel_id }}"
+            data-wiki-tab
+            data-panel="{{ panel_id }}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.image != blank -%}
+              <span class="wiki__tab-thumb">
+                <img
+                  src="{{ block.settings.image | image_url: width: 120 }}"
+                  alt=""
+                  width="60"
+                  height="60"
+                  loading="lazy"
+                >
+              </span>
+            {%- endif -%}
+            <span class="wiki__tab-label">{{ block.settings.label | escape }}</span>
+            <span class="wiki__tab-count" data-wiki-count></span>
+          </a>
+        {%- endfor -%}
+      </nav>
+
+      <p class="wiki__status" role="status" data-wiki-status></p>
+
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign category_tag = block.settings.tag | strip | downcase
+          assign panel_id = 'WikiPanel-' | append: section.id | append: '-' | append: block.id
+          assign shown = 0
+        -%}
+        <section
+          id="{{ panel_id }}"
+          class="wiki__panel"
+          aria-labelledby="WikiTab-{{ section.id }}-{{ block.id }}"
+          data-wiki-panel
+          data-panel-tag="{{ category_tag | escape }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="wiki__panel-header">
+            <div class="wiki__panel-intro">
+              <h3 class="wiki__panel-title h2">{{ block.settings.label | escape }}</h3>
+              {%- if block.settings.description != blank -%}
+                <div class="wiki__panel-description rte">{{ block.settings.description }}</div>
+              {%- endif -%}
+            </div>
+
+            {%- unless block.settings.is_catch_all or category_tag == blank -%}
+              <a
+                class="wiki__view-all link underlined-link"
+                href="{{ wiki_blog.url }}/tagged/{{ block.settings.tag | strip | handleize }}"
+              >
+                {{- 'sections.featured_blog.view_all' | t -}}
+              </a>
+            {%- endunless -%}
+          </div>
+
+          <div class="wiki__subtags" data-wiki-subtags></div>
+
+          <ul class="wiki__grid" role="list">
+            {%- for article in wiki_blog.articles -%}
+              {%- liquid
+                assign haystack = article.tags | join: '~~' | downcase
+                assign haystack = '~~' | append: haystack | append: '~~'
+
+                assign include = false
+                if block.settings.is_catch_all
+                  assign include = true
+                  for main_tag in main_tag_list
+                    assign needle = '~~' | append: main_tag | append: '~~'
+                    if haystack contains needle
+                      assign include = false
+                      break
+                    endif
+                  endfor
+                elsif category_tag != blank
+                  assign needle = '~~' | append: category_tag | append: '~~'
+                  if haystack contains needle
+                    assign include = true
+                  endif
+                endif
+
+                if shown >= limit
+                  assign include = false
+                endif
+              -%}
+
+              {%- if include -%}
+                {%- liquid
+                  assign shown = shown | plus: 1
+
+                  if article.excerpt.size > 0
+                    assign card_excerpt = article.excerpt | strip_html
+                  else
+                    assign card_excerpt = article.content | strip_html
+                  endif
+                  assign card_excerpt = card_excerpt | truncatewords: 28
+                  assign tag_text = article.tags | join: ' '
+                  assign search_index = article.title | append: ' ' | append: card_excerpt | append: ' ' | append: tag_text | downcase
+                -%}
+                <li
+                  class="wiki-card"
+                  data-wiki-card
+                  data-tags="{{ article.tags | join: '|' | downcase | escape }}"
+                  data-search="{{ search_index | escape }}"
+                >
+                  <a
+                    class="wiki-card__link"
+                    href="{{ article.url }}"
+                    aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}"
+                  >
+                    {%- if section.settings.show_image -%}
+                      <span class="wiki-card__media wiki-card__media--{{ section.settings.image_ratio }}">
+                        {%- if article.image -%}
+                          <img
+                            src="{{ article.image | image_url: width: 660 }}"
+                            srcset="
+                              {{ article.image | image_url: width: 330 }} 330w,
+                              {{ article.image | image_url: width: 660 }} 660w,
+                              {{ article.image | image_url: width: 990 }} 990w
+                            "
+                            sizes="(min-width: 990px) 30vw, (min-width: 750px) 45vw, 90vw"
+                            alt="{{ article.image.alt | escape }}"
+                            width="{{ article.image.width }}"
+                            height="{{ article.image.height }}"
+                            loading="lazy"
+                          >
+                        {%- else -%}
+                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </span>
+                    {%- endif -%}
+
+                    <span class="wiki-card__body">
+                      <span class="wiki-card__title">{{ article.title | escape }}</span>
+                      {%- if section.settings.show_date -%}
+                        <span class="wiki-card__date caption">
+                          {{- article.published_at | date: format: 'date' -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if section.settings.show_excerpt and card_excerpt != blank -%}
+                        <span class="wiki-card__excerpt">{{ card_excerpt }}</span>
+                      {%- endif -%}
+                    </span>
+                  </a>
+
+                  {%- if section.settings.show_tags and article.tags.size > 0 -%}
+                    <ul class="wiki-card__tags" role="list">
+                      {%- for tag in article.tags limit: 4 -%}
+                        <li>
+                          <a class="wiki-chip" href="{{ wiki_blog.url }}/tagged/{{ tag | handleize }}">
+                            {{- tag -}}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+
+          {%- if shown == 0 -%}
+            <p class="wiki__empty">{{ section.settings.empty_text | escape }}</p>
+          {%- endif -%}
+
+          <p class="wiki__no-match" data-wiki-no-match hidden>
+            {{ section.settings.no_match_text | escape }}
+          </p>
+        </section>
+      {%- endfor -%}
+    {%- endif -%}
+  </wiki-aroids>
+</div>
+
+{% schema %}
+{
+  "name": "アロイド Wiki",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "記事のブログ",
+      "info": "Wiki 記事を保存しているブログを選びます。"
+    },
+    {
+      "type": "range",
+      "id": "articles_per_category",
+      "min": 3,
+      "max": 50,
+      "step": 1,
+      "default": 24,
+      "label": "カテゴリーごとの表示件数",
+      "info": "ブログから読み込めるのは最新 50 記事までです。それ以上はタグページ（すべて見る）で表示されます。"
+    },
+    {
+      "type": "header",
+      "content": "テキスト"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "アロイド図鑑",
+      "label": "見出し"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+        { "value": "hxl", "label": "t:sections.all.heading_size.options__4.label" },
+        { "value": "hxxl", "label": "t:sections.all.heading_size.options__5.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>モンステラ、アンスリウム、アロカシア、フィロデンドロンなど、取り扱っているアロイドの品種と育て方の記事をまとめました。</p>",
+      "label": "説明文"
+    },
+    {
+      "type": "text",
+      "id": "nav_label",
+      "default": "カテゴリー",
+      "label": "カテゴリーナビの読み上げラベル"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "default": "このカテゴリーの記事はまだありません。",
+      "label": "記事がない場合のテキスト"
+    },
+    {
+      "type": "text",
+      "id": "no_match_text",
+      "default": "条件に一致する記事が見つかりませんでした。",
+      "label": "絞り込み結果が 0 件のときのテキスト"
+    },
+    {
+      "type": "header",
+      "content": "検索"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "default": true,
+      "label": "記事内検索を表示する",
+      "info": "JavaScript が有効な場合のみ表示されます。"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "default": "品種名・キーワードで検索",
+      "label": "検索欄のプレースホルダー"
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "デスクトップの列数"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "画像を表示する"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "square", "label": "正方形" },
+        { "value": "landscape", "label": "横長 (4:3)" },
+        { "value": "wide", "label": "ワイド (16:9)" }
+      ],
+      "default": "landscape",
+      "label": "画像の比率"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "default": true,
+      "label": "抜粋を表示する"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": false,
+      "label": "公開日を表示する"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "default": true,
+      "label": "記事のタグを表示する"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "カテゴリー",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "モンステラ",
+          "label": "カテゴリー名"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "default": "monstera",
+          "label": "記事タグ",
+          "info": "このタグが付いた記事を表示します。ブログ記事のタグと同じ文字列を入力してください（大文字小文字は無視されます）。"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "カテゴリー説明"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "タブのアイコン画像"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_catch_all",
+          "default": false,
+          "label": "その他（他のカテゴリーに属さない記事をまとめる）",
+          "info": "オンにすると「記事タグ」は無視され、他のカテゴリーのタグが付いていない記事だけを表示します。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "アロイド Wiki",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "label": "モンステラ",
+            "tag": "monstera",
+            "description": "<p>切れ込みの入った葉と斑入り品種が人気のアロイド。品種の見分け方と育て方をまとめています。</p>"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "アンスリウム",
+            "tag": "anthurium",
+            "description": "<p>ベルベット葉や original hybrid まで、アンスリウムの品種解説と管理方法。</p>"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "アロカシア",
+            "tag": "alocasia",
+            "description": "<p>個性的な葉姿のアロカシア。休眠・水やり・病害虫など栽培のポイント。</p>"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "フィロデンドロン",
+            "tag": "philodendron",
+            "description": "<p>つる性から立性まで幅広いフィロデンドロンの品種と育て方。</p>"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "その他のアロイド",
+            "tag": "other",
+            "description": "<p>シンゴニウム、アグラオネマ、スキンダプサスなど、その他のアロイドの記事。</p>",
+            "is_catch_all": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
