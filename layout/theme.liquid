@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
- {%- render 'ecom_header' -%}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -404,5 +403,5 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  {%- render "ecom_footer"-%}</body>
+  </body>
 </html>
