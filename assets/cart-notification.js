@@ -66,10 +66,12 @@ class CartNotification extends HTMLElement {
   renderContents(parsedState) {
     this.cartItemKey = parsedState.key;
     this.getSectionsToRender().forEach((section) => {
-      document.getElementById(section.id).innerHTML = this.getSectionInnerHTML(
-        parsedState.sections[section.id],
-        section.selector
-      );
+      const target = document.getElementById(section.id);
+      const sectionHTML = parsedState.sections?.[section.id];
+      // A section is skipped rather than thrown on when its host element is
+      // absent, so one optional region cannot break the whole notification.
+      if (!target || !sectionHTML) return;
+      target.innerHTML = this.getSectionInnerHTML(sectionHTML, section.selector);
     });
 
     if (this.header) this.header.reveal();
@@ -87,6 +89,9 @@ class CartNotification extends HTMLElement {
       },
       {
         id: 'cart-icon-bubble',
+      },
+      {
+        id: 'free-shipping-bar',
       },
     ];
   }

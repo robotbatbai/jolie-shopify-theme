@@ -1,0 +1,53 @@
+.free-ship {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-radius: var(--text-boxes-radius, 0);
+}
+
+.free-ship__text {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.free-ship__amount {
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.free-ship__track {
+  position: relative;
+  block-size: 0.6rem;
+  inline-size: 100%;
+  overflow: hidden;
+  background: rgba(var(--color-foreground), 0.12);
+  border-radius: 0.3rem;
+}
+
+.free-ship__fill {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: rgb(var(--color-button));
+  border-radius: inherit;
+  transition: inline-size 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.free-ship--reached .free-ship__fill {
+  background: rgb(var(--color-foreground));
+}
+
+.free-ship--reached .free-ship__text {
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .free-ship__fill {
+    transition: none;
+  }
+}

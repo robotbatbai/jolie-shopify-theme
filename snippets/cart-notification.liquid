@@ -9,6 +9,8 @@
   {% render 'cart-notification' %}
 {% endcomment %}
 
+{{ 'component-free-shipping-bar.css' | asset_url | stylesheet_tag }}
+
 <cart-notification>
   <div class="cart-notification-wrapper{% if desktop_menu_type != 'drawer' %} page-width{% endif %}">
     <div
@@ -34,6 +36,7 @@
           </span>
         </button>
       </div>
+      <div id="free-shipping-bar">{%- render 'free-shipping-bar' -%}</div>
       <div id="cart-notification-product" class="cart-notification-product"></div>
       <div class="cart-notification__links">
         <a

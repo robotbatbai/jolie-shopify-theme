@@ -1,0 +1,55 @@
+{%- comment -%}
+  Free-shipping progress bar.
+
+  Renders nothing when the cart is empty.
+
+  The threshold below is the single source of truth for this bar. It is written
+  in the shop currency subunit, which is what `cart.total_price` returns.
+  Shopify stores yen multiplied by 100, so 3,000 yen is 300000. Verified against
+  a 3,500 yen product, which reports a price of 350000.
+
+  Keep this figure in step with:
+    - the announcement bar in sections/header-group.json
+    - the 配送情報 tab in templates/product.json
+    - the FAQ row in templates/index.json
+    - the shipping rules in Settings > Shipping and delivery
+{%- endcomment -%}
+
+{%- liquid
+  assign free_shipping_threshold = 300000
+
+  assign remaining = free_shipping_threshold | minus: cart.total_price
+  assign percent = 0
+  if free_shipping_threshold > 0
+    assign percent = cart.total_price | times: 100 | divided_by: free_shipping_threshold
+  endif
+  if percent > 100
+    assign percent = 100
+  endif
+-%}
+
+{%- if cart != empty and free_shipping_threshold > 0 -%}
+  <div class="free-ship{% if remaining <= 0 %} free-ship--reached{% endif %}">
+    <p class="free-ship__text">
+      {%- if remaining > 0 -%}
+        あと<span class="free-ship__amount">{{ remaining | money }}</span>で全国送料無料
+      {%- else -%}
+        全国送料無料でお届けします
+      {%- endif -%}
+    </p>
+    <div
+      class="free-ship__track"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ percent }}"
+      {% if remaining > 0 %}
+        aria-valuetext="送料無料まであと{{ remaining | money }}"
+      {% else %}
+        aria-valuetext="送料無料の条件を満たしています"
+      {% endif %}
+    >
+      <span class="free-ship__fill" style="inline-size: {{ percent }}%"></span>
+    </div>
+  </div>
+{%- endif -%}
