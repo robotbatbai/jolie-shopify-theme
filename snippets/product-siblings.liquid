@@ -25,7 +25,15 @@
            class="amazon-card {% if is_current %}is-active is-current-item{% endif %} {% unless sibling.available %}is-out-of-stock{% endunless %}">
           
           <div class="card-image">
-            <img src="{{ sibling.featured_media | image_url: width: 200 }}" alt="{{ display_name }}" loading="lazy">
+            {%- if sibling.featured_media != blank -%}
+              <img
+                src="{{ sibling.featured_media | image_url: width: 200 }}"
+                alt="{{ display_name }}"
+                loading="lazy"
+                width="200"
+                height="{{ 200 | divided_by: sibling.featured_media.preview_image.aspect_ratio | ceil }}"
+              >
+            {%- endif -%}
           </div>
           
           <div class="card-info">
