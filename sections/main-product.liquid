@@ -15,7 +15,6 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {{ 'component-free-shipping-bar.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -501,8 +500,6 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
-                {%- when 'free_shipping_bar' -%}
-                  {%- render 'free-shipping-bar', preview_price: product.selected_or_first_available_variant.price -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
                     <div class="rating-wrapper">
@@ -946,11 +943,6 @@
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
         }
       ]
-    },
-    {
-      "type": "free_shipping_bar",
-      "name": "t:sections.main-product.blocks.free_shipping_bar.name",
-      "limit": 1
     },
     {
       "type": "description",

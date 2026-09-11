@@ -1682,9 +1682,6 @@
           },
           "name": "購入ボタン"
         },
-        "free_shipping_bar": {
-          "name": "送料無料バー"
-        },
         "share": {
           "settings": {
             "text": {

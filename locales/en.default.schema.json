@@ -2018,9 +2018,6 @@
             }
           }
         },
-        "free_shipping_bar": {
-          "name": "Free shipping bar"
-        },
         "pickup_availability": {
           "name": "Pickup availability"
         },
