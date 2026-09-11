@@ -69,6 +69,20 @@
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
+          {%- assign jn_product = article.metafields.custom.related_product.value -%}
+          {%- if blog.handle == 'aroids-wiki' and jn_product and jn_product.metafields.custom.amazon_link.value != blank -%}
+            <div style="text-align: center; margin: -20px 0 40px;">
+              <p style="font-size: 0.9em; color: #666; margin-bottom: 8px;">Amazonでもお買い求めいただけます</p>
+              <a
+                href="{{ jn_product.metafields.custom.amazon_link.value | escape }}"
+                target="_blank"
+                rel="noopener nofollow"
+                style="background-color: #ffffff; color: #232f3e; border: 2px solid #ff9900; padding: 13px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;"
+              >
+                Amazonで見る
+              </a>
+            </div>
+          {%- endif -%}
         </div>
 
       {%- when 'share' -%}
