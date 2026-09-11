@@ -30,7 +30,7 @@
         },
         "category_other": {
           "type": "category",
-          "settings": { "label": "その他のアロイド", "tag": "other", "link": "/pages/wiki-adroids" }
+          "settings": { "label": "その他のアロイド", "tag": "other", "link": "/pages/aroids-wiki" }
         }
       },
       "block_order": [
